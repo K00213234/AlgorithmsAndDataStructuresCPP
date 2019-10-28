@@ -1,5 +1,10 @@
 #pragma once
 
-void FillStack(StackClass<int>* stack);
+#include "QueueClass.h"
+#include "StackClass.h"
 
+void FillQueue(QueueClass<int>* queue);
+void FillStack(StackClass<int>* stack);
+void QueueTest();
 void SearchStack(StackClass<int>* stack);
+void StackTest();

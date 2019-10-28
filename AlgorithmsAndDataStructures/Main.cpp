@@ -1,13 +1,38 @@
-// StackLibrary.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
-
 #include <iostream>
-#include "StackClass.cpp"
 #include "Main.h"
+#include "StackClass.cpp"
+#include "QueueClass.cpp"
 
 using namespace std;
 
 int main()
+{
+	//StackTest();
+
+	QueueTest();
+
+}
+
+void QueueTest()
+{
+	cout << "Queue Library" << endl;
+
+	QueueClass<int>* queue = new QueueClass<int>();
+	FillQueue(queue);
+
+	cout << "Program Finished" << endl;
+}
+
+void FillQueue(QueueClass<int>* queue)
+{
+	for (int index = 1; index < 100; index++)
+	{
+		queue->Enqueue(index);
+		cout << "queue->Enqueue(" << index << ")" << endl;
+	}
+}
+
+void StackTest()
 {
 	cout << "Stack Library" << endl;
 

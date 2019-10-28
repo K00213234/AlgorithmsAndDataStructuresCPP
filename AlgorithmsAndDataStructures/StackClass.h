@@ -1,5 +1,5 @@
 #pragma once
-#include "LinkNode.cpp"
+#include "LinkNode.h"
 
 template<class T>
 class StackClass

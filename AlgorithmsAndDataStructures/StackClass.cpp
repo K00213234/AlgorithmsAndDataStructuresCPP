@@ -1,11 +1,14 @@
-#include <stddef.h>
+#pragma once
+
 #include "StackClass.h"
+#include <stddef.h>
 
 template<class T>
 StackClass<T>::StackClass()
 {
 	topPtr = NULL;
 }
+
 template <class T>
 StackClass<T>::~StackClass()
 {
@@ -17,6 +20,7 @@ StackClass<T>::~StackClass()
 		delete tempPtr;
 	}
 }
+
 template<class T>
 void StackClass<T>::Pop(T& item)
 {

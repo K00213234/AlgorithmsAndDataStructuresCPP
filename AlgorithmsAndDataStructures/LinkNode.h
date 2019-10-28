@@ -1,4 +1,8 @@
 #pragma once
 
 template <class T>
-struct LinkNode;
+struct LinkNode
+{
+	T info;
+	LinkNode<T>* next;
+};
