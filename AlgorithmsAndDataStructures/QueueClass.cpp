@@ -1,6 +1,8 @@
 #pragma once
 
 #include "QueueClass.h"
+#include "LinkNode.cpp"
+
 #include <stddef.h>
 
 template<class T>
@@ -40,17 +42,11 @@ bool QueueClass<T>::IsEmpty() const
 }
 template<class T>
 void QueueClass<T>::Enqueue(T newItem)
-// Adds newItem to the rear of the queue.
-// Pre:Queue has been initialized and is not full
-// Post: newItem is at rear of queue.
 {
 	//
 	//	Create Node
 	//
-	LinkNode<T>* newNode;
-	newNode = new LinkNode<T>;
-	newNode->info = newItem;
-	newNode->next = NULL;
+	LinkNode<T>* newNode = new LinkNode<T>(newItem);
 	//
 	//	Join Node to queue
 	//

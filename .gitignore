@@ -18,11 +18,10 @@ Debug
 Release
 *.suo
 *.csproj.user
-*.vbproj.user
+*.vb0proj.user
 ipch
 *sdf
 *.user
 *.filters
-*.vcxproj
 *.db
 *.opendb

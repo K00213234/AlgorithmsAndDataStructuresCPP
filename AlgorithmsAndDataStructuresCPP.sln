@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.29418.71
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "AlgorithmsAndDataStructures", "AlgorithmsAndDataStructures\AlgorithmsAndDataStructures.vcxproj", "{2CBE25AE-F11E-490A-BDDC-3AACA48F2C7A}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PointerMemoryOptimization", "PointerMemoryOptimization\PointerMemoryOptimization.vcxproj", "{60C5A3E6-8461-4F60-9095-64571047D8EA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -21,6 +23,14 @@ Global
 		{2CBE25AE-F11E-490A-BDDC-3AACA48F2C7A}.Release|x64.Build.0 = Release|x64
 		{2CBE25AE-F11E-490A-BDDC-3AACA48F2C7A}.Release|x86.ActiveCfg = Release|Win32
 		{2CBE25AE-F11E-490A-BDDC-3AACA48F2C7A}.Release|x86.Build.0 = Release|Win32
+		{60C5A3E6-8461-4F60-9095-64571047D8EA}.Debug|x64.ActiveCfg = Debug|x64
+		{60C5A3E6-8461-4F60-9095-64571047D8EA}.Debug|x64.Build.0 = Debug|x64
+		{60C5A3E6-8461-4F60-9095-64571047D8EA}.Debug|x86.ActiveCfg = Debug|Win32
+		{60C5A3E6-8461-4F60-9095-64571047D8EA}.Debug|x86.Build.0 = Debug|Win32
+		{60C5A3E6-8461-4F60-9095-64571047D8EA}.Release|x64.ActiveCfg = Release|x64
+		{60C5A3E6-8461-4F60-9095-64571047D8EA}.Release|x64.Build.0 = Release|x64
+		{60C5A3E6-8461-4F60-9095-64571047D8EA}.Release|x86.ActiveCfg = Release|Win32
+		{60C5A3E6-8461-4F60-9095-64571047D8EA}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

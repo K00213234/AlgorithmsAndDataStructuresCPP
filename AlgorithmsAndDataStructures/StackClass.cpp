@@ -1,7 +1,11 @@
 #pragma once
 
 #include "StackClass.h"
+#include "LinkNode.cpp"
 #include <stddef.h>
+#include <iostream>
+
+using namespace std;
 
 template<class T>
 StackClass<T>::StackClass()
@@ -12,33 +16,53 @@ StackClass<T>::StackClass()
 template <class T>
 StackClass<T>::~StackClass()
 {
-	LinkNode<T>* tempPtr;
-	while (topPtr != NULL)
-	{
-		tempPtr = topPtr;
-		topPtr = topPtr->next;
-		delete tempPtr;
-	}
+	Clear();
 }
 
 template<class T>
 void StackClass<T>::Pop(T& item)
 {
-	LinkNode<T>* tempPtr;
 	item = topPtr->info;
-	tempPtr = topPtr;
+
+	LinkNode<T>* previousTopItem;
+	previousTopItem = topPtr;
 	topPtr = topPtr->next;
-	delete tempPtr;
+
+	delete previousTopItem;
 }
 
 template <class T>
 void StackClass<T>::Push(T newItem)
 {
-	LinkNode<T>* location;
-	location = new LinkNode<T>;
-	location->info = newItem;
-	location->next = topPtr;
-	topPtr = location;
+	LinkNode<T>* linkNode = new LinkNode<T>(newItem);
+
+	linkNode->next = topPtr;
+
+	topPtr = linkNode;
+}
+
+template<class T>
+void StackClass<T>::Print() const
+{
+	LinkNode<T>* i;
+
+	i = topPtr;
+	while (i != NULL)
+	{
+		cout << i->info << " ";
+		i = i->next;
+	}
+
+	cout << endl;
+}
+template<class T>
+void StackClass<T>::Print_For() const
+{
+	for(LinkNode<T>* i = topPtr; i != NULL; i = i->next)
+	{
+		cout << i->info << " ";		
+	}
+	cout << endl;
 }
 
 template <class T>
@@ -52,7 +76,7 @@ void StackClass<T>::Clear()
 {
 	LinkNode<T>* previousTopItem;
 
-	while (topPtr != NULL)
+	while (!IsEmpty)
 	{
 		previousTopItem = topPtr;
 		topPtr = topPtr->next;//topPtr = &topPtr.next;
@@ -69,7 +93,6 @@ bool StackClass<T>::Contains(T candidate) const
 		if (i->info == candidate)
 		{
 			return true;
-
 		}
 		//idea//i = i + 1;
 		i = i->next;
