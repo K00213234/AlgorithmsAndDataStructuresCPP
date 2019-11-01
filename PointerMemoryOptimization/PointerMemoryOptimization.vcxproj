@@ -18,6 +18,13 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Trianga.cpp" />
+    <ClCompile Include="TriangaTest.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Trianga.h" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <ProjectGuid>{60C5A3E6-8461-4F60-9095-64571047D8EA}</ProjectGuid>
@@ -122,13 +129,6 @@
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClCompile Include="U:\Education\SoftwareDevelopmentLIT\#2005Modules\CS4113\Projects\Trianga\My Solution\Trianga.cpp" />
-    <ClCompile Include="U:\Education\SoftwareDevelopmentLIT\#2005Modules\CS4113\Projects\Trianga\My Solution\TriangaTest.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="U:\Education\SoftwareDevelopmentLIT\#2005Modules\CS4113\Projects\Trianga\My Solution\Trianga.h" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
