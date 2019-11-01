@@ -153,6 +153,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="LinkNode.cpp" />
+    <ClCompile Include="Pointers_UnSortedType.cpp" />
     <ClCompile Include="QueueClass.cpp" />
     <ClCompile Include="StackClass.cpp" />
     <ClCompile Include="Main.cpp" />
@@ -160,6 +161,7 @@
   <ItemGroup>
     <ClInclude Include="LinkNode.h" />
     <ClInclude Include="Main.h" />
+    <ClInclude Include="Pointers_UnSortedType.h" />
     <ClInclude Include="QueueClass.h" />
     <ClInclude Include="StackClass.h" />
   </ItemGroup>
