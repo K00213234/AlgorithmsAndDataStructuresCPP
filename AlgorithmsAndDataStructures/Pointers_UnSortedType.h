@@ -4,14 +4,14 @@
 
 #include <cstdlib>
 
-template <class itemtype>
+template <class T>
 struct NodeType
 {
-	itemtype info;
+	T info;
 	NodeType *next;
 };
 
-template <class itemtype>
+template <class T>
 class UnSortedType
 {
 	public:
@@ -19,19 +19,20 @@ class UnSortedType
 		~UnSortedType();	// Destructor
 		// Transformers
 		void makeEmpty();
-		void insertItem(itemtype &newitem);
-		void deleteItem(itemtype &item);
+		void insertItem(T& newitem);
+		void deleteItem(T& item);
 		// Observers
-		bool isFull()	const;
+		bool isFull()	const; //Does not work
 		int lengthIs()	const;
-		bool retrieveItem(itemtype &item);
-		bool isThere(itemtype &item);
+		bool retrieveItem(T &item);
+		bool Contains(T &item);
+		bool Contains_For(T& item);
 		// Iterators
 		void resetList();
-		bool getNextItem(itemtype &item);
+		bool getNextItem(T &item);
 	private:
 		int length;
-		NodeType<itemtype> *currentPos;
-		NodeType<itemtype> *listdata;
+		NodeType<T> *currentPos;
+		NodeType<T>* firstLinkNode;
 };
 #endif

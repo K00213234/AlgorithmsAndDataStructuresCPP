@@ -2,53 +2,55 @@
 #include "Pointers_UnSortedType.h"
 
 
-template <class itemtype>
-UnSortedType<itemtype>::UnSortedType()
+template <class T>
+UnSortedType<T>::UnSortedType()
 {
-	listdata = NULL;
+	firstLinkNode = NULL;
 	length = 0;
 }
 // Destructor
-template <class itemtype>
-UnSortedType<itemtype>::~UnSortedType()
+template <class T>
+UnSortedType<T>::~UnSortedType()
 {
 	makeEmpty();
 }
 // Transformers
-template <class itemtype>
-void UnSortedType<itemtype>::makeEmpty()
+template <class T>
+void UnSortedType<T>::makeEmpty()
 {
-	NodeType<itemtype> *temp;
-	while(listdata != NULL)
+	NodeType<T>* temp;
+	while (firstLinkNode != NULL)
 	{
-		temp = listdata;
-		listdata = listdata->next;
+		temp = firstLinkNode;
+		firstLinkNode = firstLinkNode->next;
 		delete temp;
 	}
 	length = 0;
 }
-template <class itemtype>
-void UnSortedType<itemtype>::insertItem(itemtype &newitem)
+template <class T>
+void UnSortedType<T>::insertItem(T& newitem)
 {
-	NodeType<itemtype> *newNode = new NodeType<itemtype>; // New Item for list
+	NodeType<T>* newNode = new NodeType<T>; // New Item for list
 	newNode->info = newitem;		// Copy item into newNode info
-	newNode->next = listdata;	// Connects the node to the start of the list
-	listdata = newNode;			// Resets listdata to the first node in the list
+	newNode->next = firstLinkNode;	// Connects the node to the start of the list
+
+
+	firstLinkNode = newNode;			// Resets listdata to the first node in the list
 	length++;	// Increases the length
 }
-template <class itemtype>
-void UnSortedType<itemtype>::deleteItem(itemtype &item)
+template <class T>
+void UnSortedType<T>::deleteItem(T& item)
 {
-	NodeType<itemtype> *temp;
-	if(item == listdata->info)
+	NodeType<T>* temp;
+	if (item == firstLinkNode->info)
 	{
-		temp = listdata;
-		listdata = listdata->next;
+		temp = firstLinkNode;
+		firstLinkNode = firstLinkNode->next;
 	}
 	else
 	{
-		NodeType<itemtype> *location = listdata;
-		while(item != (location->next)->info)
+		NodeType<T>* location = firstLinkNode;
+		while (item != (location->next)->info)//Review on sunday
 			location = location->next;
 		temp = location->next;
 		location->next = (location->next)->next;
@@ -56,11 +58,11 @@ void UnSortedType<itemtype>::deleteItem(itemtype &item)
 	delete temp;
 	length--;
 }
-template <class itemtype>
-bool UnSortedType<itemtype>::isFull() const
+template <class T>
+bool UnSortedType<T>::isFull() const
 {
-	NodeType<itemtype> *test = new NodeType<itemtype>;
-	if(test == NULL)
+	NodeType<T>* test = new NodeType<T>;
+	if (test == NULL)
 		return true;
 	else
 	{
@@ -68,20 +70,20 @@ bool UnSortedType<itemtype>::isFull() const
 		return false;
 	}
 }
-template <class itemtype>
-int UnSortedType<itemtype>::lengthIs() const
+template <class T>
+int UnSortedType<T>::lengthIs() const
 {
 	return length;
 }
-template <class itemtype>
-bool UnSortedType<itemtype>::retrieveItem(itemtype &item)
+template <class T>
+bool UnSortedType<T>::retrieveItem(T& item)
 {
-	NodeType<itemtype> *location = listdata;
+	NodeType<T>* location = firstLinkNode;
 	bool found = false;
-	bool mts = (location != NULL);
-	while(mts && !found)
+	bool moreToSearch = (location != NULL);
+	while (moreToSearch && !found)
 	{
-		if(item == location->info)
+		if (item == location->info)
 		{
 			item = location->info;
 			found = true;
@@ -89,39 +91,49 @@ bool UnSortedType<itemtype>::retrieveItem(itemtype &item)
 		else
 		{
 			location = location->next;
-			mts = (location != NULL);
+			moreToSearch = (location != NULL);
 		}
 	}
 	return found;
 }
-template <class itemtype>
-bool UnSortedType<itemtype>::isThere(itemtype &item)
+template <class T>
+bool UnSortedType<T>::Contains(T& candiateItem)
 {
-	NodeType<itemtype> *location = listdata;
-	bool mts = (location != NULL);
-	while(mts)
+	NodeType<T>* i = firstLinkNode;
+	while (i != NULL)
 	{
-		if(item == location->info)	return true;
+		if (i->info == candiateItem)
+			return true;
 		else
 		{
-			location = location->next;
-			mts = (location != NULL);
+			i = i->next;
 		}
 	}
 	return false;
 }
-// Iterators
-template <class itemtype>
-void UnSortedType<itemtype>::resetList() 
+template <class T>
+bool UnSortedType<T>::Contains_For(T& candiateItem)
 {
-	currentPos = listdata;
-}
-template <class itemtype>
-bool UnSortedType<itemtype>::getNextItem(itemtype &item)
-{
-	if(currentPos != NULL)
+	for (NodeType<T>* i = firstLinkNode; i != NULL; i = i->next;)
 	{
-		item = currentPos->info;
+		if (i->info == candiateItem)
+			return true;
+	}
+	return false;
+}
+
+// Iterators
+template <class T>
+void UnSortedType<T>::resetList()
+{
+	currentPos = firstLinkNode;
+}
+template <class T>
+bool UnSortedType<T>::getNextItem(T& itemContainer)
+{
+	if (currentPos != NULL)
+	{
+		itemContainer = currentPos->info;
 		currentPos = currentPos->next;
 		return true;
 	}
