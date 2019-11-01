@@ -123,6 +123,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="U:\Education\SoftwareDevelopmentLIT\#2005Modules\CS4113\Projects\Trianga\My Solution\Trianga.cpp" />
+    <ClCompile Include="U:\Education\SoftwareDevelopmentLIT\#2005Modules\CS4113\Projects\Trianga\My Solution\TriangaTest.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="U:\Education\SoftwareDevelopmentLIT\#2005Modules\CS4113\Projects\Trianga\My Solution\Trianga.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
