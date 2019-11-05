@@ -58,9 +58,9 @@ void StackClass<T>::Print() const
 template<class T>
 void StackClass<T>::Print_For() const
 {
-	for(LinkNode<T>* i = topPtr; i != NULL; i = i->next)
+	for (LinkNode<T>* i = topPtr; i != NULL; i = i->next)
 	{
-		cout << i->info << " ";		
+		cout << i->info << " ";
 	}
 	cout << endl;
 }
@@ -99,4 +99,25 @@ bool StackClass<T>::Contains(T candidate) const
 	}
 
 	return false;
+}
+template <class T>
+bool StackClass<T>::Contains_For(T candidate) const
+{
+	for (LinkNode<T>* i = topPtr; i != NULL; i = i->next)
+	{
+		if (i->info == candidate)
+			return true;
+	}
+	return false;
+}
+
+template <class T>
+int StackClass<T>::Size() const
+{
+	int count = 0;
+	for (LinkNode<T>* i = topPtr; i != NULL; i = i->next)
+	{
+		count += 1;
+	}
+	return count;
 }

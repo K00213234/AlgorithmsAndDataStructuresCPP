@@ -6,6 +6,9 @@
 
 using namespace std;
 
+int Stack_Size = 109;
+
+
 int main()
 {
 	StackTest();
@@ -41,13 +44,16 @@ void StackTest()
 	StackClass<int>* stack = new StackClass<int>();
 	FillStack(stack);
 	SearchStack(stack);
+	PrintStackMethod(stack);
+
 	SearchStack(stack);
 
 	PrintStackMethod(stack);
-	PrintStackMethod(stack);
+	//PrintStackMethod(stack);
 
-	BadPrintStackMethod(stack);
-	PrintStackMethod(stack);
+	//BadPrintStackMethod(stack);
+	//PrintStackMethod(stack);
+	//SlightlyLessBadPrintStackMethod(stack);
 
 	cout << "Program Finished" << endl;
 }
@@ -58,6 +64,37 @@ void PrintStackMethod(StackClass<int>* stack)
 	stack->Print();
 }
 
+void SlightlyLessBadPrintStackMethod(StackClass<int>* stack)
+{
+	StackClass<int>* stackBackup = new StackClass<int>();
+	//string output = "";
+	int item;
+	cout << "Stack Contents";
+	while (!stack->IsEmpty())
+	{
+		stack->Pop(item);
+		cout << item << " ";
+		stackBackup->Push(item);
+	}
+	cout << endl;
+
+	cout << "backup" << endl;
+	stackBackup->Print();
+	cout << "orignal" << endl;
+	stack->Print();
+
+	while (!stackBackup->IsEmpty())
+	{
+		stackBackup->Pop(item);
+		stack->Push(item);
+	}
+	cout << "backup" << endl;
+	stackBackup->Print();
+	cout << "orignal" << endl;
+	stack->Print();
+
+
+}
 void BadPrintStackMethod(StackClass<int>* stack)
 {
 	//string output = "";
@@ -84,7 +121,7 @@ void SearchStack(StackClass<int>* stack)
 
 void FillStack(StackClass<int>* stack)
 {
-	for (int index = 1; index < 100; index++)
+	for (int index = 1; index < Stack_Size; index++)
 	{
 		stack->Push(index);
 	}

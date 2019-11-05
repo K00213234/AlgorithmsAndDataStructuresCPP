@@ -114,7 +114,7 @@ bool UnSortedType<T>::Contains(T& candiateItem)
 template <class T>
 bool UnSortedType<T>::Contains_For(T& candiateItem)
 {
-	for (NodeType<T>* i = firstLinkNode; i != NULL; i = i->next;)
+	for (NodeType<T>* i = firstLinkNode; i != NULL; i = i->next)
 	{
 		if (i->info == candiateItem)
 			return true;

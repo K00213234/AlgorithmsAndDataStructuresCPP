@@ -10,4 +10,5 @@ void SearchStack(StackClass<int>* stack);
 void StackTest();
 
 void PrintStackMethod(StackClass<int>* stack);
+void SlightlyLessBadPrintStackMethod(StackClass<int>* stack);
 void BadPrintStackMethod(StackClass<int>* stack);
