@@ -14,6 +14,7 @@ public:
 	bool Contains_For(T candidate) const;
 	bool IsEmpty() const;
 	void Pop(T& item);
+	void Peek(T& item);
 	void Push(T item);
 	void Print() const;
 	void Print_For() const;

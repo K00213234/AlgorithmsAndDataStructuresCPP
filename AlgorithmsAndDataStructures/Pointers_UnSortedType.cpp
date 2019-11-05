@@ -30,21 +30,20 @@ void UnSortedType<T>::makeEmpty()
 template <class T>
 void UnSortedType<T>::insertItem(T& newitem)
 {
-	NodeType<T>* newNode = new NodeType<T>; // New Item for list
-	newNode->info = newitem;		// Copy item into newNode info
-	newNode->next = firstLinkNode;	// Connects the node to the start of the list
+	NodeType<T>* newNode = new NodeType<T>(newItem, firstLinkNode);
 
+	firstLinkNode = newNode;
 
-	firstLinkNode = newNode;			// Resets listdata to the first node in the list
 	length++;	// Increases the length
 }
 template <class T>
 void UnSortedType<T>::deleteItem(T& item)
 {
-	NodeType<T>* temp;
+	NodeType<T>* nodeToDelete;
+
 	if (item == firstLinkNode->info)
 	{
-		temp = firstLinkNode;
+		nodeToDelete = firstLinkNode;
 		firstLinkNode = firstLinkNode->next;
 	}
 	else
@@ -52,10 +51,12 @@ void UnSortedType<T>::deleteItem(T& item)
 		NodeType<T>* location = firstLinkNode;
 		while (item != (location->next)->info)//Review on sunday
 			location = location->next;
-		temp = location->next;
+		nodeToDelete = location->next;
 		location->next = (location->next)->next;
 	}
-	delete temp;
+
+
+	delete nodeToDelete;
 	length--;
 }
 template <class T>

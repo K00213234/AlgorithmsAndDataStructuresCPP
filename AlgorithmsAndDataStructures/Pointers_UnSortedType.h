@@ -9,6 +9,24 @@ struct NodeType
 {
 	T info;
 	NodeType *next;
+	template<class T>
+	inline NodeType()
+	{
+	}
+
+	template<class T>
+	inline NodeType(T info)
+	{
+		this->info = info;
+		this->next = NULL;
+	}
+
+	template<class T>
+	inline NodeType(T info, NodeType<T>* next)
+	{
+		this->info = info;
+		this->next = next;
+	}
 };
 
 template <class T>

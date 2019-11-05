@@ -11,10 +11,10 @@ int Stack_Size = 109;
 
 int main()
 {
-	StackTest();
+	//StackTest();
 	//comment
 
-	//QueueTest();
+	QueueTest();
 
 }
 
@@ -24,6 +24,9 @@ void QueueTest()
 
 	QueueClass<int>* queue = new QueueClass<int>();
 	FillQueue(queue);
+
+	SearchQueue(queue);
+	SearchQueue(queue);
 
 	cout << "Program Finished" << endl;
 }
@@ -107,6 +110,25 @@ void BadPrintStackMethod(StackClass<int>* stack)
 	}
 	cout << endl;
 }
+
+
+void SearchQueue(QueueClass<int>* queue)
+{
+	cout << "Enter a number to search for " << endl;
+	int candidate;
+	cin >> candidate;
+	int index = queue->IndexOf(candidate);
+	if (index != -1)
+	{
+		cout << "Found " << candidate << " at " << index << " in the queue." << endl;
+		cout << "human friendly output" << endl;
+		int number = index + 1;
+		cout << "Found " << candidate << ". They are number " << number << " in the queue." << endl;
+	}
+	else
+		cout << candidate << " is not in the queue." << endl;
+}
+
 
 void SearchStack(StackClass<int>* stack)
 {

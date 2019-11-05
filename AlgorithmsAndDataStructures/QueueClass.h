@@ -13,6 +13,7 @@ public:
 	bool IsEmpty() const;
 	void Enqueue(T newItem);
 	void Dequeue(T& item);
+	int IndexOf(T candidate) const;
 private:
 	void RemoveFrontNodeFromQueue();
 	void JoinQueue(LinkNode<T>* newNode);

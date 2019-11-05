@@ -95,3 +95,16 @@ void QueueClass<T>::RemoveFrontNodeFromQueue()
 		qRear = NULL;
 	}
 }
+
+template <class T>
+int QueueClass<T>::IndexOf(T candidate) const
+{
+	int index = 0;
+	for (LinkNode<T>* i = qFront; i != NULL; i = i->next)
+	{
+		if (i->info == candidate)
+			return index;
+		index++;
+	}
+	return -1;
+}

@@ -31,6 +31,11 @@ void StackClass<T>::Pop(T& item)
 	delete previousTopItem;
 }
 
+template<class T>
+void StackClass<T>::Peek(T& item)
+{
+	item = topPtr->info;
+}
 template <class T>
 void StackClass<T>::Push(T newItem)
 {
