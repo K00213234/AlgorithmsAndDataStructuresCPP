@@ -90,7 +90,8 @@ void TreeType<ItemType>::InsertItem(ItemType item)
 {
 	Insert(root, item);
 }
-template<class ItemType>    void Delete(TreeNode<ItemType>*& tree, ItemType item)
+template<class ItemType>
+void Delete(TreeNode<ItemType>*& tree, ItemType item)
 // Deletes item from tree.
 // Post:  item is not in tree.
 {

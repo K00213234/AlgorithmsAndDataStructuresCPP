@@ -27,6 +27,10 @@ int main()
 
 	//https://www.cppbuzz.com/programs/c++/implementation-of-binary-tree-using-template-in-c++
 	tree->displayInOrder();
+
+
+	tree->DeleteItem(40);
+	tree->displayInOrder();
 }
 
 void QueueTest()
