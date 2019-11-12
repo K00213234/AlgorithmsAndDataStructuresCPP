@@ -24,6 +24,11 @@ public:
 	void ResetTree();
 	void GetNextItem(ItemType& item, bool& finished);
 	void PrintTree(ofstream& outFile) const;
+
+
+	void displayInOrder();
+
+	void displayInOrder(TreeNode< ItemType>* nodePtr);
 private:
 	TreeNode<ItemType>* root;
 };

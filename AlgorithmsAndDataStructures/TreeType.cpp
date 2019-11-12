@@ -1,12 +1,33 @@
 #pragma once
 
 #include "TreeType.h"
-#include "BrinarySortedNode.h"
+#include "BrinarySortedNode.cpp"
 
 #include <stddef.h>
 #include <iostream>
 
 using namespace std;
+
+
+
+template <class ItemType>
+void TreeType<ItemType>::displayInOrder()
+{
+	displayInOrder(root);
+}
+
+template <class ItemType>
+void TreeType<ItemType>::displayInOrder(TreeNode< ItemType>* nodePtr)
+{
+	if (nodePtr)
+	{
+		displayInOrder(nodePtr->left);
+		cout << nodePtr->info << " ";
+		displayInOrder(nodePtr->right);
+	}
+}
+
+
 
 //
 //	helper functions
@@ -155,7 +176,8 @@ template<class ItemType>     void InPrint(TreeNode<ItemType>* tree, ofstream& ou
 	}
 }
 
-template<class ItemType>     void PrePrint(TreeNode<ItemType>* tree, ofstream& outFile)
+template<class ItemType>
+void PrePrint(TreeNode<ItemType>* tree, ofstream& outFile)
 // Prints info member of items in tree in sorted // order on outFile.
 {
 	if (tree != NULL)
@@ -165,7 +187,9 @@ template<class ItemType>     void PrePrint(TreeNode<ItemType>* tree, ofstream& o
 		PrePrint(tree->right, outFile); // Print right subtree.
 	}
 }
-template<class ItemType>     void PostPrint(TreeNode<ItemType>* tree, ofstream& outFile)
+
+template<class ItemType>
+void PostPrint(TreeNode<ItemType>* tree, ofstream& outFile)
 // Prints info member of items in tree in sorted // order on outFile.
 {
 	if (tree != NULL)
