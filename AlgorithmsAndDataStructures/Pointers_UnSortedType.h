@@ -37,20 +37,34 @@ class UnSortedType
 		~UnSortedType();	// Destructor
 		// Transformers
 		void makeEmpty();
+		
 		void insertItem(T& newitem);
 		void deleteItem(T& item);
 		// Observers
+		bool IsEmpty() const;
+		bool IsNotEmpty() const;
 		bool isFull()	const; //Does not work
 		int lengthIs()	const;
 		bool retrieveItem(T &item);
 		bool Contains(T &item);
 		bool Contains_For(T& item);
-		// Iterators
-		void resetList();
+		// Iterator
+		void resetListIterator();
 		bool getNextItem(T &item);
 	private:
+		//
+		//	functions
+		//
+		void popAndDeleteFirstNode();
+		//
+		//	fields
+		//
 		int length;
-		NodeType<T> *currentPos;
 		NodeType<T>* firstLinkNode;
+		//
+		// for iterator
+		//
+		NodeType<T>* currentPos;
+
 };
 #endif

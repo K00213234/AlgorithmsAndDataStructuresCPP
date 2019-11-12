@@ -1,7 +1,6 @@
 // Pointers_UnSortedType.cpp
 #include "Pointers_UnSortedType.h"
 
-
 template <class T>
 UnSortedType<T>::UnSortedType()
 {
@@ -18,19 +17,25 @@ UnSortedType<T>::~UnSortedType()
 template <class T>
 void UnSortedType<T>::makeEmpty()
 {
-	NodeType<T>* temp;
-	while (firstLinkNode != NULL)
+	while (IsNotEmpty())
 	{
-		temp = firstLinkNode;
-		firstLinkNode = firstLinkNode->next;
-		delete temp;
+		popAndDeleteFirstNode();
 	}
 	length = 0;
 }
-template <class T>
-void UnSortedType<T>::insertItem(T& newitem)
+template<class T>
+void UnSortedType<T>::popAndDeleteFirstNode()
 {
-	NodeType<T>* newNode = new NodeType<T>(newItem, firstLinkNode);
+	NodeType<T>* nodeToDelete = firstLinkNode;
+	firstLinkNode = firstLinkNode->next;
+	delete nodeToDelete;
+}
+template <class T>
+void UnSortedType<T>::insertItem(T& newItem)
+{
+	NodeType<T>* newNode = new NodeType<T>(newItem);
+
+	newNode->next = firstLinkNode;
 
 	firstLinkNode = newNode;
 
@@ -39,24 +44,26 @@ void UnSortedType<T>::insertItem(T& newitem)
 template <class T>
 void UnSortedType<T>::deleteItem(T& item)
 {
-	NodeType<T>* nodeToDelete;
-
 	if (item == firstLinkNode->info)
 	{
-		nodeToDelete = firstLinkNode;
-		firstLinkNode = firstLinkNode->next;
+		popAndDeleteFirstNode();
 	}
 	else
 	{
-		NodeType<T>* location = firstLinkNode;
+		NodeType<T>* location;
+		
+		location = firstLinkNode;
 		while (item != (location->next)->info)//Review on sunday
 			location = location->next;
+		
+		//taking note of the cut node
 		nodeToDelete = location->next;
+		//Cuting out a node
 		location->next = (location->next)->next;
+		delete nodeToDelete;
 	}
 
 
-	delete nodeToDelete;
 	length--;
 }
 template <class T>
@@ -71,6 +78,20 @@ bool UnSortedType<T>::isFull() const
 		return false;
 	}
 }
+
+template<class T>
+bool UnSortedType<T>::IsNotEmpty() const
+// Returns true if there are no elements on the queue; false otherwise.
+{
+	return (firstLinkNode != NULL);
+}
+template<class T>
+bool UnSortedType<T>::IsEmpty() const
+// Returns true if there are no elements on the queue; false otherwise.
+{
+	return (firstLinkNode == NULL);
+}
+
 template <class T>
 int UnSortedType<T>::lengthIs() const
 {
@@ -125,7 +146,7 @@ bool UnSortedType<T>::Contains_For(T& candiateItem)
 
 // Iterators
 template <class T>
-void UnSortedType<T>::resetList()
+void UnSortedType<T>::resetListIterator()
 {
 	currentPos = firstLinkNode;
 }

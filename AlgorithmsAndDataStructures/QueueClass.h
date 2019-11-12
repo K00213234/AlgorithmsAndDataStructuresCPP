@@ -11,6 +11,7 @@ public:
 #pragma endregion
 	void Clear();
 	bool IsEmpty() const;
+	bool IsNotEmpty() const;
 	void Enqueue(T newItem);
 	void Dequeue(T& item);
 	int IndexOf(T candidate) const;

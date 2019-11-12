@@ -3,21 +3,55 @@
 #include "StackClass.cpp"
 #include "QueueClass.cpp"
 #include "LinkNode.cpp"
+#include "Pointers_UnSortedType.cpp"
 
 using namespace std;
 
 int Stack_Size = 109;
 
 
+void Exit()
+{
+	cout << "bye";
+}
 int main()
 {
-	//StackTest();
-	//comment
+	int option = 1;
+	do
+	{
+		cin >> option;
+		switch (option)
+		{
+		case 1: option++; break;
+		case 2: option++; break;
+		case 3: option++; break;
+		case 4: Exit(); break;
+		default:option++;
 
-	QueueTest();
+
+		}
+	} while (option != 4)
+		//StackTest();
+		//comment
+
+		//QueueTest();
+
+		LinkedListExample();
 
 }
+void LinkedListExample()
+{
+	cout << "Queue Library" << endl;
 
+	UnSortedType<int>* list = new UnSortedType<int>();
+	Fill(list);
+
+	Print(list);
+
+
+
+	cout << "Program Finished" << endl;
+}
 void QueueTest()
 {
 	cout << "Queue Library" << endl;
@@ -29,6 +63,33 @@ void QueueTest()
 	SearchQueue(queue);
 
 	cout << "Program Finished" << endl;
+}
+
+void Fill(UnSortedType<int>* list)
+{
+	for (int index = 1; index < 100; index++)
+	{
+		list->insertItem(index);
+		cout << "list->insertItem(" << index << ")" << endl;
+	}
+	UnSortedType<int>* list2 = new UnSortedType<int>();
+	int item;
+	list->resetListIterator();
+	while (list->getNextItem(item))
+	{
+		list2->insertItem(item);
+	}
+}
+void Print(UnSortedType<int>* list)
+{
+	list->resetListIterator();
+	int item;
+
+	while (list->getNextItem(item))
+	{
+		cout << item << " ";
+	}
+
 }
 
 void FillQueue(QueueClass<int>* queue)

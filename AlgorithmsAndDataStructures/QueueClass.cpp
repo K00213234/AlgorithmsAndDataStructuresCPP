@@ -21,18 +21,22 @@ QueueClass<T>::~QueueClass()
 }
 template<class T>
 void QueueClass<T>::Clear()
-// Post: Queue is empty; all elements have been
-// deallocated.
 {
 	LinkNode<T>* tempPtr;
 
-	while (qFront != NULL)
+	while (IsNotEmpty())
 	{
 		tempPtr = qFront;
 		qFront = qFront->next;
 		delete tempPtr;
 	}
 	qRear = NULL;
+}
+template<class T>
+bool QueueClass<T>::IsNotEmpty() const
+// Returns true if there are no elements on the queue; false otherwise.
+{
+	return (qFront != NULL);
 }
 template<class T>
 bool QueueClass<T>::IsEmpty() const
