@@ -28,7 +28,7 @@ void UnSortedType<T>::makeEmpty()
 	length = 0;
 }
 template <class T>
-void UnSortedType<T>::insertItem(T& newitem)
+void UnSortedType<T>::insertItem(T& newItem)
 {
 	NodeType<T>* newNode = new NodeType<T>(newItem, firstLinkNode);
 
