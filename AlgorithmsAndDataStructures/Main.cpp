@@ -1,5 +1,6 @@
 #include <iostream>
 #include "Main.h"
+#include "TreeType.cpp"
 #include "StackClass.cpp"
 #include "QueueClass.cpp"
 #include "LinkNode.cpp"
@@ -34,10 +35,25 @@ int main()
 		//StackTest();
 		//comment
 
+	//QueueTest();
+
+	TreeType<int>* tree = new TreeType<int>();
+
+	tree->InsertItem(50);
+	tree->InsertItem(40);
+	tree->InsertItem(100);
+	tree->InsertItem(30);
+	tree->InsertItem(45);
+
+	//https://www.cppbuzz.com/programs/c++/implementation-of-binary-tree-using-template-in-c++
+	tree->displayInOrder();
+
 		//QueueTest();
 
 		LinkedListExample();
 
+	tree->DeleteItem(40);
+	tree->displayInOrder();
 }
 void LinkedListExample()
 {
