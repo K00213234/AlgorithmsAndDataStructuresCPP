@@ -9,6 +9,7 @@ void Print(UnSortedType<int>* list);
 void FillQueue(QueueClass<int>* queue);
 void FillStack(StackClass<int>* stack);
 int main();
+void TreeExampleTest();
 void QueueTest();
 void SearchQueue(QueueClass<int>* queue);
 void SearchStack(StackClass<int>* stack);

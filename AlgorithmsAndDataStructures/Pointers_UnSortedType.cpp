@@ -57,7 +57,7 @@ void UnSortedType<T>::deleteItem(T& item)
 			location = location->next;
 		
 		//taking note of the cut node
-		nodeToDelete = location->next;
+		NodeType<T>* nodeToDelete = location->next;
 		//Cuting out a node
 		location->next = (location->next)->next;
 		delete nodeToDelete;

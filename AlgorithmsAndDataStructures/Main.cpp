@@ -13,30 +13,35 @@ int Stack_Size = 109;
 
 void Exit()
 {
+	/*int option = 1;
+do
+{
+	cin >> option;
+	switch (option)
+	{
+	case 1: option++; break;
+	case 2: option++; break;
+	case 3: option++; break;
+	case 4: Exit(); break;
+	default:option++;
+	}
+} while (option != 4);*/
+//StackTest();
+
 	cout << "bye";
 }
 int main()
 {
-	int option = 1;
-	do
-	{
-		cin >> option;
-		switch (option)
-		{
-		case 1: option++; break;
-		case 2: option++; break;
-		case 3: option++; break;
-		case 4: Exit(); break;
-		default:option++;
+	//comment
+
+//QueueTest();
+	//LinkedListExample();
 
 
-		}
-	} while (option != 4)
-		//StackTest();
-		//comment
-
-	//QueueTest();
-
+	TreeExampleTest();
+}
+void TreeExampleTest()
+{
 	TreeType<int>* tree = new TreeType<int>();
 
 	tree->InsertItem(50);
@@ -48,9 +53,7 @@ int main()
 	//https://www.cppbuzz.com/programs/c++/implementation-of-binary-tree-using-template-in-c++
 	tree->displayInOrder();
 
-		//QueueTest();
 
-		LinkedListExample();
 
 	tree->DeleteItem(40);
 	tree->displayInOrder();

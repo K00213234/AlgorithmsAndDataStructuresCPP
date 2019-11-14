@@ -130,6 +130,7 @@ template<class ItemType>    void DeleteNode(TreeNode<ItemType>*& tree)
 	}
 	else
 	{
+		ItemType data = tree->info;
 		GetPredecessor(tree->left, data);
 		tree->info = data;
 		Delete(tree->left, data); // Delete predecessor node.
@@ -234,7 +235,7 @@ void Destroy(TreeNode<ItemType>*& tree)
 
 
 template<class ItemType>
-void TreeType<ItemType>:: TreeType::MakeEmpty()
+void TreeType<ItemType>::TreeType::MakeEmpty()
 {
 	Destroy(root);
 	root = NULL;
