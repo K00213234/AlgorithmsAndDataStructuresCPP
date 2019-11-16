@@ -1,7 +1,8 @@
 #pragma once
-#include <stddef.h>
 
 #include "LinkNode.h"
+#include <stddef.h>
+
 template<class T>
 inline LinkNode<T>::LinkNode()
 {

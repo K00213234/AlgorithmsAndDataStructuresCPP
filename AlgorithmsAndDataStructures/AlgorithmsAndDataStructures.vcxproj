@@ -156,8 +156,8 @@
     <ClCompile Include="LinkNode.cpp" />
     <ClCompile Include="Pointers_UnSortedType.cpp" />
     <ClCompile Include="QueueClass.cpp" />
-    <ClCompile Include="StackClass.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="StackClass.cpp" />
     <ClCompile Include="TreeType.cpp" />
   </ItemGroup>
   <ItemGroup>

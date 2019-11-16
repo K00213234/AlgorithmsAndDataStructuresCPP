@@ -5,6 +5,7 @@ template <class T>
 UnSortedType<T>::UnSortedType()
 {
 	firstLinkNode = NULL;
+	currentPos = NULL;
 	length = 0;
 }
 // Destructor

@@ -77,5 +77,5 @@ ostream& operator<< (ostream& out, const triangle& t)
 inline float det(point p1, point p2)
 // Calculates the Determinant of two points
 {
-	return (p1.pointx() * p2.pointy() - p2.pointx() * p1.pointy());
+	return (float) (p1.pointx() * p2.pointy() - p2.pointx() * p1.pointy());
 }
