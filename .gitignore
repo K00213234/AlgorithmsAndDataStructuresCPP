@@ -25,5 +25,4 @@ ipch
 *.filters
 *.db
 *.opendb
-/.vs/slnx.sqlite
-/.vs/ProjectSettings.json
+/.vs
