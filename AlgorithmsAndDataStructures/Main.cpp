@@ -1,13 +1,11 @@
 #pragma once
 
-#include <iostream>
 #include "Main.h"
 #include "StackTest.cpp"
 #include "QueueTest.cpp"
 #include "BinarySearchTreeTest.cpp"
 #include "LinkedListTest.cpp"
 
-using namespace std;
 
 int main()
 {
