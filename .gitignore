@@ -27,4 +27,3 @@ ipch
 *.opendb
 /.vs/slnx.sqlite
 /.vs/ProjectSettings.json
-/.vs/VSWorkspaceState.json

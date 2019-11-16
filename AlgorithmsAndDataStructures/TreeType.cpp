@@ -11,25 +11,13 @@ using namespace std;
 
 
 template <class ItemType>
-void BinarySearchTree<ItemType>::displayInOrder()
+void TreeType<ItemType>::displayInOrder()
 {
 	displayInOrder(root);
 }
 
 template <class ItemType>
-void BinarySearchTree<ItemType>::displayPreOrder()
-{
-	displayPreOrder(root);
-}
-
-template <class ItemType>
-void BinarySearchTree<ItemType>::displayPostOrder()
-{
-	displayPostOrder(root);
-}
-
-template <class ItemType>
-void BinarySearchTree<ItemType>::displayInOrder(TreeNode< ItemType>* nodePtr)
+void TreeType<ItemType>::displayInOrder(TreeNode< ItemType>* nodePtr)
 {
 	if (nodePtr)
 	{
@@ -38,28 +26,8 @@ void BinarySearchTree<ItemType>::displayInOrder(TreeNode< ItemType>* nodePtr)
 		displayInOrder(nodePtr->right);
 	}
 }
-template <class T>
-void BinarySearchTree<T>::displayPreOrder(TreeNode < T>* nodePtr)
-{
-	if (nodePtr)
-	{
-		cout << nodePtr->info << " ";
-		displayPreOrder(nodePtr->left);
-		displayPreOrder(nodePtr->right);
-	}
-}
 
-template <class T>
-void BinarySearchTree<T>::displayPostOrder(TreeNode<T>* nodePtr)
-{
-	if (nodePtr)
-	{
-		displayPostOrder(nodePtr->left);
-		displayPostOrder(nodePtr->right);
-		cout << nodePtr->info << " ";
-	}
 
-}
 
 //
 //	helper functions
@@ -73,50 +41,12 @@ int CountNodes(TreeNode<ItemType>* treeNode)
 		CountNodes(treeNode->right) + 1;
 }
 
-//
-//	helper functions
-template<class ItemType>
-int SumNodes(TreeNode<ItemType>* treeNode)
-{
-	if (treeNode == NULL)
-		return 0;
-	else
-		return SumNodes(treeNode->left) +
-		SumNodes(treeNode->right) + treeNode->info;
-}
-
-//
-//	helper functions
-template<class ItemType>
-int SumOfLeafNodes1(TreeNode<ItemType>* treeNode)
-{
-	if (treeNode == NULL)
-		return 0;
-	else if (treeNode->IsLeaf())
-		return treeNode->info;
-	else
-		return SumOfLeafNodes1(treeNode->left) +
-		SumOfLeafNodes1(treeNode->right);
-}
-
 
 template<class ItemType>
-int BinarySearchTree<ItemType>::NumberOfNodes() const
+int TreeType<ItemType>::NumberOfNodes() const
 {
 	return CountNodes(root);
 }
-
-template<class ItemType>
-int BinarySearchTree<ItemType>::SumOfNodes() const
-{
-	return SumNodes(root);
-}
-template<class ItemType>
-int BinarySearchTree<ItemType>::SumOfLeafNodes() const
-{
-	return SumOfLeafNodes1(root);
-}
-
 
 template<class ItemType>
 void Retrieve(TreeNode<ItemType>* treeNode, ItemType& item, bool& found)
@@ -134,7 +64,7 @@ void Retrieve(TreeNode<ItemType>* treeNode, ItemType& item, bool& found)
 	}
 }
 
-template<class ItemType>    void BinarySearchTree<ItemType>::RetrieveItem(ItemType& item, bool& found)
+template<class ItemType>    void TreeType<ItemType>::RetrieveItem(ItemType& item, bool& found)
 // Calls recursive function Retrieve to search  // the tree for item.
 {
 	Retrieve(root, item, found);
@@ -155,7 +85,7 @@ void Insert(TreeNode<ItemType>*& treeNode, ItemType item)
 		Insert(treeNode->right, item);     // Insert in right subtree.
 }
 template<class ItemType>
-void BinarySearchTree<ItemType>::InsertItem(ItemType item)
+void TreeType<ItemType>::InsertItem(ItemType item)
 // Calls recursive function Insert to insert item into tree.
 {
 	Insert(root, item);
@@ -174,7 +104,7 @@ void Delete(TreeNode<ItemType>*& tree, ItemType item)
 }
 
 template<class ItemType>
-void BinarySearchTree<ItemType>::DeleteItem(ItemType item)
+void TreeType<ItemType>::DeleteItem(ItemType item)
 // Calls recursive function Delete to delete item // from tree.
 {
 	Delete(root, item);
@@ -218,7 +148,7 @@ template<class ItemType>    void GetPredecessor(TreeNode<ItemType>* tree, ItemTy
 }
 
 template<class ItemType>
-void BinarySearchTree<ItemType>::PrintTree(ofstream& outFile) const
+void TreeType<ItemType>::PrintTree(ofstream& outFile) const
 // Calls recursive function Print to print items in the tree.
 {
 	Print(root, outFile);
@@ -273,19 +203,19 @@ void PostPrint(TreeNode<ItemType>* tree, ofstream& outFile)
 }
 
 template<class ItemType>
-bool BinarySearchTree<ItemType>::IsEmpty() const
+bool TreeType<ItemType>::IsEmpty() const
 {
 	return root == NULL;
 }
 
 
 template<class ItemType>
-BinarySearchTree<ItemType>::BinarySearchTree()
+TreeType<ItemType>::TreeType()
 {
 	root = NULL;
 }
 template<class ItemType>
-BinarySearchTree<ItemType>::~BinarySearchTree()
+TreeType<ItemType>::~TreeType()
 // Calls recursive function Destroy to destroy the tree.
 {
 	Destroy(root);
@@ -305,7 +235,7 @@ void Destroy(TreeNode<ItemType>*& tree)
 
 
 template<class ItemType>
-void BinarySearchTree<ItemType>::BinarySearchTree::MakeEmpty()
+void TreeType<ItemType>::TreeType::MakeEmpty()
 {
 	Destroy(root);
 	root = NULL;

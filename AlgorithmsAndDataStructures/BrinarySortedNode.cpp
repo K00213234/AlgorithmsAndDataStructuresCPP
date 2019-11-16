@@ -16,9 +16,3 @@ inline TreeNode<T>::TreeNode(T info)
 	this->left = NULL;
 	this->right = NULL;
 }
-template<class T>
-bool TreeNode<T>::IsLeaf() const
-{
-	return this->left == NULL && this->right == NULL;
-}
-
