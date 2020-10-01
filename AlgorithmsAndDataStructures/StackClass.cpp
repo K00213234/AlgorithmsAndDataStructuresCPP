@@ -3,7 +3,7 @@
 #include "StackClass.h"
 #include "LinkNode.cpp"
 #include <stddef.h>
-#include <iostream>
+#include<bits/stdc++.h>
 
 using namespace std;
 
